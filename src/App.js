@@ -1,8 +1,21 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Site from './layouts/Site';
+import Home from './pages/Home'
+import AboutUs from './pages/AboutUs';
 
 function App() {
-  return (
+  return<BrowserRouter>
+    <Routes>
+      <Route path ="/" element={<Site />}>
+        <Route index element={<Home />} />
+        <Route path="about-us" element={<AboutUs />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+  /*(
+    
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,7 +32,9 @@ function App() {
         </a>
       </header>
     </div>
+    
   );
+  */
 }
 
 export default App;
